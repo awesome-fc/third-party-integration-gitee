@@ -1,0 +1,24 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  fc-gitee-demo:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Description: 'fc gitee demo'
+      InternetAccess: true
+      LogConfig:
+        Project: $your_project$
+        Logstore: $your_logstore$
+    func:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: python2.7
+        CodeUri: './'
+        Timeout: 600
+      Events:
+        httpTrigger:
+          Type: HTTP
+          Properties:
+            AuthType: ANONYMOUS
+            Methods: ['POST', 'GET']
