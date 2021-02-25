@@ -31,7 +31,6 @@ Allow to anonynously report usage statistics to improve the tool over time? (Y/n
 1. Run following command on the demo root path：
 
  ```
-fun build  # build the demo
 fun deploy -y # deploy function
 ```
 
